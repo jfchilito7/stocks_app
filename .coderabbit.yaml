@@ -1,0 +1,40 @@
+# Configuración de CodeRabbit para revisiones automáticas inteligentes
+
+reviews:
+  # ✅ Habilita revisiones automáticas
+  auto_review: true
+
+  # 🟡 Oculta el mensaje "Review skipped"
+  review_status: false
+
+  # 📌 Ramas donde CodeRabbit puede hacer revisiones automáticas
+  branches:
+    include:
+      - "dev"
+      - "header"
+      - "feature/*"
+      - "fix/*"
+      - "hotfix/*"
+
+    # 🚫 Excluye la rama principal para evitar spam en merges finales
+    exclude:
+      - "main"
+      - "master"
+
+  # ⚙️ Configura el comportamiento del bot
+  settings:
+    # Cuántos comentarios máximos puede dejar por revisión
+    max_comments: 5
+    # Nivel de detalle del feedback (puede ser: summary, normal, detailed)
+    detail_level: normal
+    # Si quieres que analice tests también
+    include_tests: true
+    # Revisa tanto frontend como backend (según archivos detectados)
+    multi_language: true
+
+# 💬 Configuración de los comentarios del bot
+comments:
+  # Evita que el bot repita el mismo comentario en revisiones futuras
+  deduplicate: true
+  # Permite que se eliminen comentarios si el código fue corregido
+  cleanup_resolved: true
